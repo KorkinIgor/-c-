@@ -1,0 +1,50 @@
+import threading
+from threading import Thread
+
+def sum(a, b):
+    print(a + b)
+
+t = threading.Thread(target=sum, args=(5, 3))
+
+t.start()
+-------------------------------------------------
+import threading
+import time
+from threading import Thread
+
+def sum(a, b):
+    print(a + b)
+    time.sleep(3)  #Ждем 3 секунды
+
+t = threading.Thread(target=sum, args=(5, 3))
+
+t.start()
+print("Работает!")  #8Работает!
+
+
+#Засчет потока программа запускает и функцию и print("Работает") одним кадром.
+---------------------------------------------------------------------------------
+import threading
+import time
+from threading import Thread
+
+def sum(a, b):
+    print(a + b)
+    time.sleep(3)
+
+t = threading.Thread(target=sum, args=(5, 3))
+
+t.start()
+t.join()  #Ждет завершение потока
+print("Работает!")
+
+
+consol:
+8
+Работает!
+---------------------------------------------------------------------------------
+
+
+
+
+
