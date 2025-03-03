@@ -1,0 +1,12 @@
+import threading
+from threading import Thread
+
+
+def a():
+    print("a")
+
+t1 = Thread(target=a)  #класс Thread создает поток 
+
+t1.start()  #вызывает поток
+
+t1.join()  #ждем выполнения работы потока
