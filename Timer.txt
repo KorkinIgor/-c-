@@ -1,0 +1,43 @@
+import threading
+import time
+from threading import Thread
+
+def sum(a, b):
+    print(a + b)
+    time.sleep(3)
+
+t = threading.Timer(3, sum,args=(3, 5))  #Запустит поток через 3 секунды
+
+t.start()
+t.join()  #Ждет завершение потока
+print("Работает!")
+
+------------------------------------------------------------------------------
+
+import threading
+import time
+from threading import Thread
+
+def sum(a, b):
+    print(a + b)
+    time.sleep(3)
+
+print(threading.main_thread())  #главный поток
+
+
+#<_MainThread(MainThread, started 13668)>
+-------------------------------------------------------------------------------------
+import threading
+import time
+from threading import Thread
+
+def sum(a, b):
+    print(a + b)
+
+t = threading.Thread(target=sum, args=(3, 5))
+
+t.start()
+
+print(threading.active_count())  #считает количество потоков(2)
+
+
